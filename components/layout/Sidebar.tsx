@@ -51,20 +51,20 @@ export default function Sidebar() {
             icon={<img src="/vetores/cardapio.svg" alt="Cardápio" className="w-6 h-6" />}
             label="Cardápio"
             expanded={expanded}
-            active={pathname.startsWith('/cardapio')}
-            defaultOpen={pathname.startsWith('/cardapio')}
+            active={pathname.startsWith('/cardapio') || pathname.startsWith('/cadastro-produto')}
+            defaultOpen={pathname.startsWith('/cardapio') || pathname.startsWith('/cadastro-produto')}
           >
             <SidebarSubmenu
               label="Produtos"
               expanded={expanded}
-              active={pathname.startsWith('/produtos')}
-              defaultOpen={pathname.startsWith('/produtos')}
+              active={pathname.startsWith('/produtos') || pathname.startsWith('/cadastro-produto')}
+              defaultOpen={pathname.startsWith('/produtos') || pathname.startsWith('/cadastro-produto')}
             >
               <SidebarItem
                 icon={undefined}
                 label="Cadastrar"
-                href="/produtos/cadastrar"
-                active={pathname === '/produtos/cadastrar'}
+                href="/cadastro-produto"
+                active={pathname === '/cadastro-produto'}
                 expanded={expanded}
               />
               <SidebarItem

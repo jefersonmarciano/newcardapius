@@ -62,13 +62,13 @@ export default function OrdersPanel() {
       </div>
 
       {/* Main content with rounded corners */}
-      <div className="flex-1 overflow-y-auto mx-4 mb-4 bg-white rounded-2xl">
+      <div className="flex-1 overflow-y-auto scrollbar-hidden mx-4 mb-4 bg-white rounded-2xl">
         <div className="flex flex-col">
           {/* Pending Orders Section */}
           <CollapsibleSection title="Aceitar pedidos" count={pendingOrders.length} defaultOpen={true}>
             <div className="space-y-4 p-4 bg-[#F3F3F3]">
               {pendingOrders.map((order) => (
-                <OrderCard key={order.id} order={order} />
+                <OrderCard key={order.id} order={order}  />
               ))}
             </div>
           </CollapsibleSection>

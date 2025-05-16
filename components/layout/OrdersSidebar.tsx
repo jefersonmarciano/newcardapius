@@ -124,7 +124,7 @@ export default function OrdersSidebar() {
                 <div className="flex justify-between items-center mb-2">
                   <div className="flex items-center gap-2">
                     <span className="text-orange-500 font-medium">#5579</span>
-                    <span>Clarissa Gomes</span>
+                    <span>Bla bla bla teste</span>
                   </div>
                   <div className="bg-gray-100 text-gray-700 rounded-md px-2 py-1 text-xs flex flex-col items-center">
                     <span className="font-bold">5</span>

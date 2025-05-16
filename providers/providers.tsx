@@ -1,13 +1,20 @@
 "use client"
 
-import type React from "react"
-
 import { ThemeProvider } from "@/components/theme-provider"
+import { CategoriesProvider } from "@/providers/CategoriesProvider"
+import { ReactNode } from "react"
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children }: { children: ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-      {children}
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <CategoriesProvider>
+        {children}
+      </CategoriesProvider>
     </ThemeProvider>
   )
 }

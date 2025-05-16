@@ -1,72 +1,126 @@
 "use client"
 
 import { useOrdersMetrics } from "@/hooks/useOrdersMetrics"
-import { formatCurrency } from "@/lib/utils"
+import { Calendar } from "lucide-react"
 
 export default function OrdersMetrics() {
   const { metrics } = useOrdersMetrics()
 
   return (
-    <div className="grid grid-cols-4 gap-4 p-4">
-      {/* Hoje */}
-      <div className="bg-orange-500 text-white rounded-lg p-4">
-        <div className="flex items-center gap-2 mb-2">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.8333 3.33334H4.16667C3.24619 3.33334 2.5 4.07954 2.5 5.00001V16.6667C2.5 17.5872 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5872 17.5 16.6667V5.00001C17.5 4.07954 16.7538 3.33334 15.8333 3.33334Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M13.3333 1.66667V5.00001" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M6.66667 1.66667V5.00001" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2.5 8.33334H17.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          <span className="text-lg font-medium">Hoje</span>
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      {/* Card Hoje */}
+      <div className="bg-orange-500 text-white rounded-lg p-4 flex flex-col items-center justify-center">
+        <div className="flex items-center justify-center mb-2">
+          <Calendar className="h-6 w-6 mr-2" />
+          <span className="text-xl font-medium">Hoje</span>
         </div>
-        <div className="text-sm mb-2">{metrics.dataAtual}</div>
+        <div className="text-sm">{metrics.dataAtual}</div>
       </div>
-      
-      {/* Faturamento Hoje */}
-      <div className="bg-white rounded-lg p-4">
+
+      {/* Card Faturamento Hoje */}
+      <div className="bg-white rounded-lg p-6 shadow-sm">
         <div className="text-gray-500 text-sm mb-2">Faturamento Hoje</div>
-        <div className="flex items-baseline">
-          <span className="text-gray-700 text-sm">R$</span>
-          <span className="text-3xl font-bold text-gray-700">{metrics.faturamentoHoje.value.toLocaleString()}</span>
-        </div>
-        <div className="border-b border-gray-200 my-2"></div>
-        <div className="flex justify-end items-center">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-red-500 mr-1">
-            <path d="M8 12.6667L8 3.33334" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3.33334 8.00001L8.00001 3.33334L12.6667 8.00001" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          <span className="text-red-500 font-medium mr-1">{metrics.faturamentoHoje.percentage}%</span>
-          <span className="text-gray-500 text-xs">da semana passada</span>
+        <div className="flex flex-col">
+          <div className="flex items-start">
+            <span className="text-gray-700 text-lg">R$</span>
+            <span className="text-[40px] leading-tight font-bold text-gray-700">
+              {metrics.faturamentoHoje.value.toLocaleString()}
+            </span>
+          </div>
+          <div className="border-b border-gray-200 mt-1 mb-3"></div>
+          <div className="flex justify-end items-center">
+            <svg
+              className="h-5 w-5 text-blue-500 mr-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 9L7 5M7 5L11 9M7 5V19"
+                stroke="#3B82F6"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21 15L17 19M17 19L13 15M17 19V5"
+                stroke="#3B82F6"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="text-blue-500 font-medium mr-1">{metrics.faturamentoHoje.percentage}%</span>
+            <span className="text-gray-500 text-sm">da semana passada</span>
+          </div>
         </div>
       </div>
-      
-      {/* Total de pedidos */}
-      <div className="bg-white rounded-lg p-4">
+
+      {/* Card Total de pedidos */}
+      <div className="bg-white rounded-lg p-6 shadow-sm">
         <div className="text-gray-500 text-sm mb-2">Total de pedidos</div>
-        <div className="text-3xl font-bold text-gray-700">{metrics.totalPedidos.value}</div>
-        <div className="border-b border-gray-200 my-2"></div>
-        <div className="flex justify-end items-center">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-red-500 mr-1">
-            <path d="M8 12.6667L8 3.33334" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3.33334 8.00001L8.00001 3.33334L12.6667 8.00001" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          <span className="text-red-500 font-medium mr-1">{metrics.totalPedidos.percentage}%</span>
-          <span className="text-gray-500 text-xs">da semana passada</span>
+        <div className="flex flex-col">
+          <div className="text-[40px] leading-tight font-bold text-gray-700">{metrics.totalPedidos.value}</div>
+          <div className="border-b border-gray-200 mt-1 mb-3"></div>
+          <div className="flex justify-end items-center">
+            <svg
+              className="h-5 w-5 text-red-500 mr-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 15L7 19M7 19L11 15M7 19V5"
+                stroke="#EF4444"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21 9L17 5M17 5L13 9M17 5V19"
+                stroke="#EF4444"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="text-red-500 font-medium mr-1">{metrics.totalPedidos.percentage}%</span>
+            <span className="text-gray-500 text-sm">da semana passada</span>
+          </div>
         </div>
       </div>
-      
-      {/* Pedidos cancelados */}
-      <div className="bg-white rounded-lg p-4">
+
+      {/* Card Pedidos cancelados */}
+      <div className="bg-white rounded-lg p-6 shadow-sm">
         <div className="text-gray-500 text-sm mb-2">Pedidos cancelados</div>
-        <div className="text-3xl font-bold text-gray-700">{metrics.pedidosCancelados.value}</div>
-        <div className="border-b border-gray-200 my-2"></div>
-        <div className="flex justify-end items-center">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-red-500 mr-1">
-            <path d="M8 12.6667L8 3.33334" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3.33334 8.00001L8.00001 3.33334L12.6667 8.00001" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          <span className="text-red-500 font-medium mr-1">{metrics.pedidosCancelados.percentage}%</span>
-          <span className="text-gray-500 text-xs">da semana passada</span>
+        <div className="flex flex-col">
+          <div className="text-[40px] leading-tight font-bold text-gray-700">{metrics.pedidosCancelados.value}</div>
+          <div className="border-b border-gray-200 mt-1 mb-3"></div>
+          <div className="flex justify-end items-center">
+            <svg
+              className="h-5 w-5 text-red-500 mr-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 15L7 19M7 19L11 15M7 19V5"
+                stroke="#EF4444"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21 9L17 5M17 5L13 9M17 5V19"
+                stroke="#EF4444"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="text-red-500 font-medium mr-1">{metrics.pedidosCancelados.percentage}%</span>
+            <span className="text-gray-500 text-sm">da semana passada</span>
+          </div>
         </div>
       </div>
     </div>

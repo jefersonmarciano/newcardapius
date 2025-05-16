@@ -6,4 +6,16 @@ export interface Product {
   discount: number
   imageUrl: string
   ordersToday: number
+  description?: string
+  category?: string
+  available?: boolean
+}
+
+export interface ProductFormData {
+  nome: string
+  descricao: string
+  preco: string
+  categoria: string
+  disponivel: boolean
+  imagem: File | null
 }

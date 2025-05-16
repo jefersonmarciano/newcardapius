@@ -1,133 +1,90 @@
 "use client"
 
+import { useState } from "react"
 import { useOrdersStore } from "@/hooks/useOrdersStore"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import type { Order } from "@/types/order"
-import { Clock } from "lucide-react"
+import OrderDetailsModal from "./OrderDetailsModal"
 
 interface OrderCardProps {
   order: Order
-  status: "novo" | "preparando" | "enviado"
+  status?: "novo" | "preparando" | "enviado"
   timeRange?: string
 }
 
-export default function OrderCard({ order, status, timeRange }: OrderCardProps) {
+export default function OrderCard({ order, status = "novo", timeRange }: OrderCardProps) {
   const { acceptOrder } = useOrdersStore()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div
-      className={`bg-white rounded-lg border ${status === "enviado" ? "border-blue-200" : "border-orange-200"} overflow-hidden`}
-    >
-      <div className="p-4">
-        <div className="flex justify-between items-start mb-3">
-          <div>
+    <>
+      <Card className="bg-white">
+        <CardContent className="p-0">
+          <div className="flex items-center justify-between p-4 pb-2">
+            <div className="flex items-center gap-2">
+              <span className="text-orange-500 font-medium">#{order.id}</span>
+              <span className="text-gray-700">{order.customerName}</span>
+            </div>
+            <div className="bg-gray-100 text-gray-700 rounded-md px-2 py-1 text-xs flex flex-col items-center">
+              <span className="font-bold">5</span>
+              <span className="text-[10px]">min</span>
+            </div>
+          </div>
+
+          <div className="px-4 py-2">
+            {order.items.map((item, index) => (
+              <div key={index} className="flex items-center justify-between py-1">
+                <div className="text-sm text-gray-700">
+                  {item.quantity}x {item.name}
+                </div>
+                <div className="text-sm text-gray-700">R$ {item.price.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-4 my-2 border-t border-dashed border-gray-200"></div>
+
+          <div className="px-4 py-2 flex items-center justify-between">
+            <div className="font-medium text-gray-700">Total</div>
+            <div className="font-medium text-gray-700">R$ {order.total.toFixed(2)}</div>
+          </div>
+
+          <div className="p-4 pt-2">
             {status === "novo" && (
-              <div className="inline-block bg-orange-100 text-orange-500 text-xs px-2 py-0.5 rounded">Novo</div>
+              <Button
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium"
+                onClick={() => acceptOrder(order.id)}
+              >
+                Aceitar pedido
+              </Button>
             )}
-            {status === "preparando" && (
-              <div className="inline-block bg-orange-100 text-orange-500 text-xs px-2 py-0.5 rounded">Preparando</div>
-            )}
-            {status === "enviado" && (
-              <div className="inline-block bg-blue-100 text-blue-500 text-xs px-2 py-0.5 rounded">Enviado</div>
+            
+            {(status === "preparando" || status === "enviado") && (
+              <Button
+                className={`w-full ${
+                  status === "preparando"
+                    ? "bg-orange-50 hover:bg-orange-100 text-orange-500"
+                    : status === "enviado"
+                      ? "bg-[#3F7CFF] hover:bg-blue-600 text-white"
+                      : "bg-gray-100 hover:bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setIsModalOpen(true)}
+              >
+                Ver detalhes
+              </Button>
             )}
           </div>
-          {(status === "novo" || status === "preparando") && (
-            <div className="bg-white border border-gray-200 rounded-md w-8 h-8 flex items-center justify-center text-orange-500 font-medium">
-              5<div className="text-[8px] text-gray-500 -mt-3">min</div>
-            </div>
-          )}
-        </div>
-
-        <div className="flex items-center gap-1 text-gray-700">
-          <span className="font-medium">#{order.id}</span>
-          <span className="text-gray-500">{order.customerName}</span>
-        </div>
-
-        {status === "preparando" && timeRange && (
-          <div className="flex items-center gap-1 text-xs text-gray-500 mt-1">
-            <Clock className="h-3.5 w-3.5 text-orange-500" />
-            {timeRange}
-          </div>
-        )}
-
-        <div className="mt-3 space-y-1">
-          {order.items.map((item, index) => (
-            <div key={index} className="flex justify-between text-sm">
-              <span className="text-gray-700">
-                {item.quantity}x {item.name}
-              </span>
-              <span className="text-gray-700">R$ {item.price.toFixed(2)}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-2">
-          <button className="text-orange-500 text-sm flex items-center">
-            Ver mais{" "}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="ml-1"
-            >
-              <path
-                d="M4 6L8 10L12 6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div className="border-t border-dashed border-gray-200 my-3"></div>
-
-        {status === "novo" && (
-          <>
-            <div className="flex justify-between items-center text-sm">
-              <div className="text-gray-700">Frete</div>
-              <div className="text-gray-700">R$ 5.00</div>
-            </div>
-
-            <div className="flex justify-between items-center text-sm mt-1">
-              <div className="text-gray-700">Total + Frete</div>
-              <div className="text-orange-500 font-medium">R$ 5.00</div>
-            </div>
-          </>
-        )}
-
-        {(status === "preparando" || status === "enviado") && (
-          <div className="flex justify-between items-center text-sm">
-            <div className="text-gray-700">Total</div>
-            <div className="text-gray-700 font-medium">R$ 50.00</div>
-          </div>
-        )}
-      </div>
-
-      {status === "novo" && (
-        <button
-          className="w-[calc(100%-16px)] bg-orange-500 hover:bg-orange-600 text-white py-3 font-medium rounded-md mx-2 mb-2"
-          onClick={() => acceptOrder(order.id)}
-        >
-          Aceitar pedido
-        </button>
-      )}
+        </CardContent>
+      </Card>
 
       {(status === "preparando" || status === "enviado") && (
-        <button
-          className={`w-[calc(100%-16px)] py-3 font-medium rounded-md mx-2 mb-2 ${
-            status === "preparando"
-              ? "bg-orange-50 hover:bg-orange-100 text-orange-500"
-              : status === "enviado"
-                ? "bg-[#3F7CFF] hover:bg-blue-600 text-white"
-                : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-          }`}
-        >
-          Ver detalhes
-        </button>
+        <OrderDetailsModal
+          orderId={order.id}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
       )}
-    </div>
+    </>
   )
 }
