@@ -45,6 +45,12 @@ src/
 
 - As páginas de pedidos (`/pedidos` e `/pedidos-v2`) agora utilizam o mesmo layout e componentes para exibição dos cards de métricas (data, faturamento, total de pedidos e pedidos cancelados), garantindo consistência visual e reutilização de lógica via hooks.
 
+## Sidebar Componentizado e Expansível
+
+- O Sidebar foi totalmente refatorado e componentizado, utilizando os componentes `SidebarLogo`, `SidebarSection`, `SidebarItem`, `SidebarSubmenu`, `SidebarDivider` e `SidebarFooter`.
+- O menu lateral agora expande ao passar o mouse, exibindo textos, submenus e divisores, seguindo exatamente o layout do design.
+- Cada item, submenu e divisor é um componente reutilizável, facilitando manutenção e customização.
+
 ## Componentes Principais
 
 - **Header**: Exibe informações do usuário e status da loja

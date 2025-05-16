@@ -24,7 +24,7 @@ export default function CadastroProdutoPage() {
                 <div className="bg-white rounded-lg border border-orange-200 p-4 flex justify-between items-center">
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-lg overflow-hidden">
-                      <Image src="/images/hamburger-icon.png" alt="Hambúrguer" width={64} height={64} />
+                      <Image src="/images/burger.svg" alt="Hambúrguer" width={64} height={64} />
                     </div>
                     <div>
                       <div className="font-medium">Cadastro Simples</div>
@@ -38,7 +38,7 @@ export default function CadastroProdutoPage() {
                 <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-lg overflow-hidden">
-                      <Image src="/images/bebidas-icon.png" alt="Bebidas" width={64} height={64} />
+                      <Image src="/images/bebidas.svg" alt="Bebidas" width={64} height={64} />
                     </div>
                     <div>
                       <div className="font-medium">Cadastro de Bebidas</div>
