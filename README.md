@@ -24,7 +24,7 @@ src/
 │   └── page.tsx            # Página inicial do dashboard
 ├── components/             # Componentes reutilizáveis
 │   ├── banners/            # Componentes de banners promocionais
-│   ├── clients/            # Componentes relacionados a clientes
+│   ├── clients/            # Componentes relanpocionados a clientes
 │   ├── layout/             # Componentes de layout (Header, Sidebar)
 │   ├── metrics/            # Componentes de métricas de desempenho
 │   ├── orders/             # Componentes relacionados a pedidos
