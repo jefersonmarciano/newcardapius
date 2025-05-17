@@ -57,13 +57,13 @@ export default function ClientesPage() {
               </div>
 
               <ClientsList searchQuery={searchQuery} />
-            </div>
-          </div>
-          
+                  </div>
+                </div>
+
           {/* Orders sidebar */}
           <OrdersSidebar />
-        </div>
-      </div>
-    </div>
+                  </div>
+                    </div>
+                  </div>
   )
 }

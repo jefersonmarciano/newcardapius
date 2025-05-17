@@ -80,11 +80,34 @@ src/
 - A interface permite adicionar, selecionar e gerenciar categorias de forma intuitiva
 - O sistema é integrado ao cadastro de produtos para facilitar a categorização
 
-## Padronização Visual e Reutilização de Componentes
+## Sistema de Cadastro de Adicionais e Fluxo em Cascata
 
-- As páginas de pedidos (`/pedidos` e `/pedidos-v2`) agora utilizam o mesmo layout e componentes para exibição dos cards de métricas (data, faturamento, total de pedidos e pedidos cancelados), garantindo consistência visual e reutilização de lógica via hooks.
-- A página de clientes (`/clientes`) utiliza componentes reutilizáveis e hooks específicos para gerenciar os dados dos clientes, seguindo o mesmo padrão de componentização do restante da aplicação.
-- A página de cadastro de produtos segue o mesmo padrão visual, mantendo a consistência da aplicação.
+- **Fluxo em Cascata no Cadastro de Produtos:** O cadastro de produtos foi aprimorado para funcionar em etapas sequenciais, onde cada seção (categorias, informações do produto, adicionais) aparece logo abaixo da anterior, mantendo todas visíveis na mesma tela. O usuário preenche uma etapa, clica em "Continuar" e a próxima seção é exibida imediatamente abaixo, sem navegação para outra página.
+- **Resumo Visual do Produto:** Após preencher e salvar os dados do produto, a seção de edição é substituída por um card resumo perfeitamente alinhado com o cabeçalho da tabela (Produto, Preço, Promocional, Disponibilidade, Ação), incluindo imagem, nome, descrição, preços e ícones de ação (edição e exclusão). O alinhamento visual segue fielmente o design fornecido.
+- **Componentização:** Todas as seções do cadastro (categorias, informações do produto, adicionais) foram componentizadas, facilitando manutenção, reutilização e evolução do sistema.
+- **Modal de Grupos de Adicionais:**
+  - Ao clicar em "+ Criar grupos de adicionais", um modal centralizado é aberto, seguindo fielmente o layout do design.
+  - O modal inclui:
+    - Título, subtítulo e botão de ação no topo
+    - Inputs para nome do grupo, obrigatório (dropdown), mínimo e máximo (com botões + e -)
+    - Botão para incluir adicionais no grupo
+    - Mensagem e ícone centralizados caso não haja adicionais
+    - Botão de fechar no canto superior direito
+    - Botão "Continuar" fixo no rodapé do modal
+  - O modal foi extraído para um componente próprio (`AdicionaisGroupModal`), facilitando a customização e evolução futura.
+- **Fluxo Imediato de Grupos de Adicionais:**
+  - Ao clicar no botão "+" em um grupo dentro do modal de grupos de adicionais (`NovoAdicionalModal`), o grupo é adicionado imediatamente à seção de "Adicionais" na tela principal, sem necessidade de confirmação ou callback.
+  - O estado dos grupos selecionados é global e controlado pelo componente principal (`page.tsx`).
+  - Não há duplicidade: o grupo só é adicionado se ainda não estiver presente.
+  - O padrão adotado é "imediato", ou seja, qualquer grupo adicionado aparece instantaneamente na tela principal, melhorando a experiência do usuário.
+
+### Pontos Importantes e Pendências
+
+- **Persistência dos Grupos:** Atualmente, os grupos de adicionais são mantidos apenas em memória (estado React). Não há persistência em backend ou localStorage. Ao recarregar a página, os dados são perdidos.
+- **Integração com Backend:** Futuramente, será necessário integrar o cadastro e a listagem de grupos de adicionais com o backend para garantir persistência e multiusuário.
+- **Edição e Remoção de Grupos:** Ainda não há funcionalidade para editar ou remover grupos de adicionais já cadastrados. Isso pode ser implementado adicionando ícones de ação na listagem de grupos.
+- **Feedback Visual:** Pode ser interessante adicionar feedback visual (ex: toast, animação) ao adicionar um grupo, para melhorar a UX.
+- **Validação e Regras de Negócio:** As regras de obrigatoriedade, mínimo/máximo de adicionais por grupo e outras validações podem ser aprimoradas conforme as necessidades do negócio.
 
 ## Sidebar Componentizado e Expansível
 
