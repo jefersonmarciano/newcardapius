@@ -36,7 +36,7 @@ const IncluirAdicionalModal: React.FC<IncluirAdicionalModalProps> = ({
 
   return (
     <>
-      <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black bg-opacity-30">
+      <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black bg-opacity-30" data-lov-id="app/cadastro-produto/cadastro-simples/IncluirAdicionalModal">
         <div className="bg-white rounded-xl shadow-lg w-full max-w-[960px] p-6 relative">
           {/* Botão fechar */}
           <button
@@ -60,6 +60,7 @@ const IncluirAdicionalModal: React.FC<IncluirAdicionalModalProps> = ({
                 placeholder="Buscar categoria"
                 className="w-full border border-[#D6D6D6] rounded-md py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#FF5900]"
               />
+              
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A9A9A9]">
                 <svg width="20" height="20" fill="none" stroke="currentColor">
                   <circle cx="9" cy="9" r="7" strokeWidth="2" />
@@ -93,6 +94,7 @@ const IncluirAdicionalModal: React.FC<IncluirAdicionalModalProps> = ({
             <div
               key={adicional.id}
               className="grid grid-cols-[2fr_1fr_1fr_1fr_0.5fr] items-center px-6 py-4 border-b last:border-b-0"
+              data-lov-id="app/cadastro-produto/cadastro-simples/IncluirAdicionalModal"
             >
               {/* Produto */}
               <div className="flex items-center gap-4">

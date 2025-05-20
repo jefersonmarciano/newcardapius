@@ -29,9 +29,9 @@ export default function TemplatePage() {
                 <Button className="bg-orange-500 hover:bg-orange-600">+ Adicionar Template</Button>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4" data-lov-id="app/template/page-list">
                 {/* Template 1 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="app/template/page">
                   <div>
                     <div className="font-medium">Cardápio de natal</div>
                     <div className="text-sm text-gray-500">Descrição do cardápio</div>
@@ -64,7 +64,7 @@ export default function TemplatePage() {
                 </div>
 
                 {/* Template 2 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="app/template/page">
                   <div>
                     <div className="font-medium">Final de semana</div>
                     <div className="text-sm text-gray-500">Descrição do cardápio</div>
@@ -97,7 +97,7 @@ export default function TemplatePage() {
                 </div>
 
                 {/* Template 3 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="app/template/page">
                   <div>
                     <div className="font-medium">Natal início</div>
                     <div className="text-sm text-gray-500">Descrição do cardápio</div>
@@ -130,7 +130,7 @@ export default function TemplatePage() {
                 </div>
 
                 {/* Template 4 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="app/template/page">
                   <div>
                     <div className="font-medium">Natal Final</div>
                     <div className="text-sm text-gray-500">Descrição do cardápio</div>

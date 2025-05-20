@@ -18,7 +18,7 @@ export default function ClientesPage() {
         <Header title="Clientes" />
         <div className="flex flex-1">
           <div className="flex-1 overflow-y-auto h-[calc(100vh-64px)] bg-gray-50">
-            <div className="p-6">
+            <div className="p-6" data-lov-id="app/clientes/page">
               <div className="flex flex-col space-y-1 mb-4">
                 <div className="flex items-center gap-2">
                   <h2 className="text-lg font-medium">Listagem de clientes</h2>
@@ -57,13 +57,13 @@ export default function ClientesPage() {
               </div>
 
               <ClientsList searchQuery={searchQuery} />
-                  </div>
-                </div>
+            </div>
+          </div>
 
           {/* Orders sidebar */}
           <OrdersSidebar />
-                  </div>
-                    </div>
-                  </div>
+        </div>
+      </div>
+    </div>
   )
 }

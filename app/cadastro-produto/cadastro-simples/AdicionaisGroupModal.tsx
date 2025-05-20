@@ -26,9 +26,10 @@ interface AdicionaisGroupModalProps {
     imagem: string;
   }[];
   onToggleDisponibilidade: (id: number) => void;
+  onOpenIncluirAdicionalModal: () => void;
 }
 
-const AdicionaisGroupModal: React.FC<AdicionaisGroupModalProps> = ({ open, onClose, adicionaisSelecionados, adicionaisDisponiveis, onToggleDisponibilidade }) => {
+const AdicionaisGroupModal: React.FC<AdicionaisGroupModalProps> = ({ open, onClose, adicionaisSelecionados, adicionaisDisponiveis, onToggleDisponibilidade, onOpenIncluirAdicionalModal }) => {
   const [groupName, setGroupName] = useState('');
   const [isRequired, setIsRequired] = useState(true);
   const [min, setMin] = useState(1);
@@ -46,7 +47,7 @@ const AdicionaisGroupModal: React.FC<AdicionaisGroupModalProps> = ({ open, onClo
 
   return open ? (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30" data-lov-id="app/cadastro-produto/cadastro-simples/AdicionaisGroupModal">
         <div className="bg-white rounded-2xl shadow-xl w-full max-w-[900px] relative p-8">
           {/* Botão fechar */}
           <button onClick={onClose} className="absolute top-4 right-4 text-orange-500 text-xl font-bold rounded-full bg-[#FFF] border border-[#F5F5F5] w-8 h-8 flex items-center justify-center hover:bg-orange-100 transition">
@@ -127,7 +128,7 @@ const AdicionaisGroupModal: React.FC<AdicionaisGroupModalProps> = ({ open, onClo
               </div>
               <div className="max-h-64 overflow-y-auto">
                 {adicionaisSelecionados.map((adicional) => (
-                  <div key={adicional.id} className="grid grid-cols-[2fr_1fr_1fr_1fr_0.7fr] items-center px-6 py-6 gap-2 border-b last:border-b-0 bg-white">
+                  <div key={adicional.id} className="grid grid-cols-[2fr_1fr_1fr_1fr_0.7fr] items-center px-6 py-6 gap-2 border-b last:border-b-0 bg-white" data-lov-id="app/cadastro-produto/cadastro-simples/AdicionaisGroupModal">
                     <div className="flex items-center gap-4">
                       <div className="w-24 h-24 rounded-md overflow-hidden flex-shrink-0">
                         <Image src={adicional.imagem} alt={adicional.nome} width={96} height={96} className="object-cover w-full h-full" />

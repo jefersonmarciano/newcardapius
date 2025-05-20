@@ -24,13 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.variable} font-poppins`}>
-        <Providers>
-          <div className="flex h-screen">
-            <Sidebar />
-            <main className="flex-1 overflow-auto">{children}</main>
-          </div>
-        </Providers>
+      <body>
+        <div className={`${poppins.variable} font-poppins`}>
+          <Providers>
+            <div className="flex h-screen">
+              <Sidebar />
+              <main className="flex-1 overflow-auto">{children}</main>
+            </div>
+          </Providers>
+        </div>
       </body>
     </html>
   )

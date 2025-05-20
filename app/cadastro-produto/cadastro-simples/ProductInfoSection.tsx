@@ -43,7 +43,7 @@ const ProductInfoSection: React.FC<ProductInfoSectionProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
+    <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6" data-lov-id="app/cadastro-produto/cadastro-simples/ProductInfoSection">
       <h2 className="text-lg font-semibold mb-1">Produto</h2>
       <p className="text-sm text-gray-500 mb-6">Adicione as informações do produto</p>
       <div className="flex flex-wrap gap-8">

@@ -45,12 +45,13 @@ const gruposMock = [
   },
 ];
 
+
 const NovoAdicionalModal: React.FC<GruposAdicionaisModalProps> = ({ open, onClose, onAddGrupo, onOpenIncluirAdicionalModal }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-30">
-      <div className="bg-white rounded-[18px] w-full max-w-[800px] relative px-10 pt-10 pb-6" style={{ boxShadow: "0 2px 24px 0 rgba(53,53,53,0.10)" }}>
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-30" data-lov-id="app/cadastro-produto/cadastro-simples/NovoAdicionalModal">
+      <div className="bg-white rounded-[18px] w-full max-w-[800px] relative px-10 pt-10 pb-6" style={{ boxShadow: "0 2px 24px 0 rgba(53,53,53,0.10)" }} data-lov-id="app/cadastro-produto/cadastro-simples/NovoAdicionalModal">
         {/* Botão de fechar */}
         <button
           onClick={onClose}

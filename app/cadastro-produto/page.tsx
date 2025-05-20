@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import Header from "@/components/layout/Header"
-import OrdersSidebar from "@/components/layout/OrdersSidebar"
+import OrdersPanel from "@/components/orders/OrdersPanel"
 import { ChevronDown, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
@@ -11,6 +11,14 @@ export default function CadastroProdutoPage() {
   
   const handleCadastroSimplesClick = () => {
     router.push("/cadastro-produto/cadastro-simples")
+  }
+  
+  const handleCadastroPizzaClick = () => {
+    router.push("/cadastro-produto/cadastro-pizza")
+  }
+
+  const handleCadastroBebidasClick = () => {
+    router.push("/cadastro-produto/cadastro-bebidas")
   }
   
   return (
@@ -30,9 +38,10 @@ export default function CadastroProdutoPage() {
 
               <div className="space-y-4">
                 {/* Opção 1 */}
-                <div 
+                <div data-lov-id="app/cadastro-produto/page"
                   className="bg-white rounded-lg border border-orange-200 p-4 flex justify-between items-center cursor-pointer hover:bg-orange-50 transition-colors"
                   onClick={handleCadastroSimplesClick}
+                  
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-lg overflow-hidden">
@@ -47,7 +56,11 @@ export default function CadastroProdutoPage() {
                 </div>
 
                 {/* Opção 2 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
+                <div
+                  className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors"
+                  data-lov-id="app/cadastro-produto/page"
+                  onClick={handleCadastroBebidasClick}
+                >
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-lg overflow-hidden">
                       <Image src="/images/bebidas.svg" alt="Bebidas" width={64} height={64} />
@@ -63,7 +76,7 @@ export default function CadastroProdutoPage() {
                 </div>
 
                 {/* Opção 3 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors" data-lov-id="app/cadastro-produto/page" onClick={handleCadastroPizzaClick}>
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-lg overflow-hidden">
                       <Image src="/images/pizza.svg" alt="Pizza" width={64} height={64} />
@@ -80,7 +93,7 @@ export default function CadastroProdutoPage() {
               </div>
             </div>
           </div>
-          <OrdersSidebar />
+          <OrdersPanel />
         </div>
       </div>
     </div>

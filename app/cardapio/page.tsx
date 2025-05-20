@@ -31,7 +31,7 @@ export default function CardapioPage() {
 
               <div className="space-y-4">
                 {/* Item 1 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="Pizza Calabresa">
                   <div>
                     <div className="font-medium">Pizza Calabresa</div>
                     <div className="text-sm text-gray-500">Molho de tomate, calabresa, cebola e azeitonas</div>
@@ -65,7 +65,7 @@ export default function CardapioPage() {
                 </div>
 
                 {/* Item 2 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="Pizza Marguerita">
                   <div>
                     <div className="font-medium">Pizza Marguerita</div>
                     <div className="text-sm text-gray-500">Molho de tomate, mussarela, tomate e manjericão</div>
@@ -99,7 +99,7 @@ export default function CardapioPage() {
                 </div>
 
                 {/* Item 3 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="Hamburguer Classico">
                   <div>
                     <div className="font-medium">Hambúrguer Clássico</div>
                     <div className="text-sm text-gray-500">Pão, hambúrguer, queijo, alface, tomate e cebola</div>
@@ -133,7 +133,7 @@ export default function CardapioPage() {
                 </div>
 
                 {/* Item 4 */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center">
+                <div className="bg-white rounded-lg border border-gray-200 p-4 flex justify-between items-center" data-lov-id="Refrigerante Cola">
                   <div>
                     <div className="font-medium">Refrigerante Cola</div>
                     <div className="text-sm text-gray-500">Lata 350ml</div>

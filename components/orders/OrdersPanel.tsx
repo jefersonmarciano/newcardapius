@@ -15,7 +15,7 @@ export default function OrdersPanel() {
   const [activeTab, setActiveTab] = useState("now") // "now" or "preparing"
 
   return (
-    <div className="w-96 bg-gray-50 border-l border-gray-200 flex flex-col rounded-[15px] overflow-hidden h-[calc(100vh-64px)]">
+    <div className="w-96 bg-gray-50 border-l border-gray-200 flex flex-col rounded-[15px] gm overflow-hidden h-[calc(100vh-64px)] mt-4">
       {/* Tabs */}
       <div className="flex border-b border-gray-200">
         <button

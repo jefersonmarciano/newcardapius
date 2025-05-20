@@ -30,7 +30,7 @@ export default function CategoriasPage() {
 
               <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
                 {/* Categoria 1 */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                <div className="flex items-center justify-between p-4 border-b border-gray-100" data-lov-id="app/categorias/page">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-6 h-6">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@ export default function CategoriasPage() {
                 </div>
 
                 {/* Categoria 2 */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                <div className="flex items-center justify-between p-4 border-b border-gray-100" data-lov-id="app/categorias/page">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-6 h-6">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@ export default function CategoriasPage() {
                 </div>
 
                 {/* Categoria 3 */}
-                <div className="flex items-center justify-between p-4">
+                <div className="flex items-center justify-between p-4" data-lov-id="app/categorias/page">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-6 h-6">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

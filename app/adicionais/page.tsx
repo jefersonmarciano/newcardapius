@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header"
-import OrdersSidebar from "@/components/layout/OrdersSidebar"
+import OrdersPanel from "@/components/orders/OrdersPanel"
 import { Input } from "@/components/ui/input"
 import { Search, ChevronDown, Pencil, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -50,7 +50,7 @@ export default function AdicionaisPage() {
                 </div>
 
                 {/* Adicional 1 */}
-                <div className="grid grid-cols-4 p-4 border-b border-gray-100 items-center">
+                <div className="grid grid-cols-4 p-4 border-b border-gray-100 items-center" data-lov-id="app/adicionais/page">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg overflow-hidden">
                       <Image src="/images/maionese.png" alt="Maionese" width={48} height={48} />
@@ -77,7 +77,7 @@ export default function AdicionaisPage() {
                 </div>
 
                 {/* Adicional 2 */}
-                <div className="grid grid-cols-4 p-4 border-b border-gray-100 items-center">
+                <div className="grid grid-cols-4 p-4 border-b border-gray-100 items-center" data-lov-id="app/adicionais/page">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg overflow-hidden">
                       <Image src="/images/mostarda.png" alt="Molho mostarda" width={48} height={48} />
@@ -104,7 +104,7 @@ export default function AdicionaisPage() {
                 </div>
 
                 {/* Adicional 3 */}
-                <div className="grid grid-cols-4 p-4 items-center">
+                <div className="grid grid-cols-4 p-4 items-center" data-lov-id="app/adicionais/page">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg overflow-hidden">
                       <Image src="/images/molho-tropical.png" alt="Molho tropical" width={48} height={48} />
@@ -132,7 +132,7 @@ export default function AdicionaisPage() {
               </div>
             </div>
           </div>
-          <OrdersSidebar />
+          <OrdersPanel />
         </div>
       </div>
     </div>

@@ -30,6 +30,7 @@ export default function OrderCard({ order, status = "novo", timeRange }: OrderCa
               <span className="font-bold">5</span>
               <span className="text-[10px]">min</span>
             </div>
+
           </div>
 
           <div className="px-4 py-2">

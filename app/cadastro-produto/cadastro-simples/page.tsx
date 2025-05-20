@@ -18,7 +18,7 @@ import useAdicionais from '@/hooks/useAdicionais'
 
 // Exemplo de próxima seção
 const EstoqueSection = () => (
-  <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
+  <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6" data-lov-id="app/cadastro-produto/cadastro-simples/page">
     <h2 className="text-lg font-semibold mb-1">Estoque</h2>
     <p className="text-sm text-gray-500 mb-6">Adicione as informações de estoque do produto</p>
     {/* Campos de estoque aqui */}
@@ -35,7 +35,7 @@ const ProductSummaryCard = ({ name, description, price, promoPrice, imageUrl, on
   onEdit: () => void;
   onDelete: () => void;
 }) => (
-  <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
+  <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6" data-lov-id="app/cadastro-produto/cadastro-simples/page">
     <h2 className="text-lg font-semibold mb-1">Produto</h2>
     <p className="text-sm text-gray-500 mb-6">Adicione as informações do produto</p>
     <div className="w-full">
@@ -81,9 +81,10 @@ const ProductSummaryCard = ({ name, description, price, promoPrice, imageUrl, on
   </div>
 );
 
+
 // Seção de adicionais
 const AdicionaisSection = ({ onOpenModal, gruposSelecionados }: { onOpenModal: () => void, gruposSelecionados: any[] }) => (
-  <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
+  <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6" data-lov-id="app/cadastro-produto/cadastro-simples/page">
     <h2 className="text-lg font-semibold mb-1">Adicionais</h2>
     <p className="text-sm text-gray-500 mb-6">Se este produto pode receber adicionais, inclua por aqui.</p>
     <Button className="bg-orange-500 hover:bg-orange-600" onClick={onOpenModal}>+ Criar grupos de adicionais</Button>
@@ -169,7 +170,7 @@ export default function CadastroSimplesPage() {
               <p className="text-sm text-gray-500 mb-6">Seção de cadastro de produto simples</p>
 
               {/* Card Cadastro Simples */}
-              <div className="bg-white rounded-lg border border-orange-200 p-4 flex items-center gap-4 mb-6">
+              <div className="bg-white rounded-lg border border-orange-200 p-4 flex items-center gap-4 mb-6" data-lov-id="app/cadastro-produto/cadastro-simples/page">
                 <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                   <Image src="/images/burger.svg" alt="Hambúrguer" width={64} height={64} />
                 </div>
@@ -246,17 +247,18 @@ export default function CadastroSimplesPage() {
               
 
               <IncluirAdicionalModal
-                 open={showIncluirAdicionalModal}
-                 onClose={() => setShowIncluirAdicionalModal(false)}
-                 adicionais={adicionais}
-                 onToggleDisponibilidade={toggleDisponibilidade}
-                 addAdicionais={addAdicionais}
-                 onOpenNovoAdicionalModal={() => {
-                   console.log('Abrindo NovoAdicionalModal');
-                   setShowIncluirAdicionalModal(false);
-                   setShowNovoAdicionalModal(true);
+                open={showIncluirAdicionalModal}
+                onClose={() => setShowIncluirAdicionalModal(false)}
+                adicionais={adicionais}
+                onToggleDisponibilidade={toggleDisponibilidade}
+                addAdicionais={addAdicionais}
+                onOpenNovoAdicionalModal={() => {
+                  console.log('Abrindo NovoAdicionalModal');
+                  setShowIncluirAdicionalModal(false);
+                  setShowNovoAdicionalModal(true);
                 }}
               />
+              
               <NovoAdicionalModal
                 open={showNovoAdicionalModal}
                 onClose={() => setShowNovoAdicionalModal(false)}

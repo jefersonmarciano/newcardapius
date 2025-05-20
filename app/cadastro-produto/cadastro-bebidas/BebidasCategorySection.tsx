@@ -7,15 +7,15 @@ interface Category {
   path: string;
 }
 
-interface CategorySectionProps {
+interface BebidasCategorySectionProps {
   selectedCategories: Category[];
   setIsCategoryModalOpen: (open: boolean) => void;
   toggleCategory: (id: string) => void;
 }
 
-const CategorySection: React.FC<CategorySectionProps> = ({ selectedCategories, setIsCategoryModalOpen, toggleCategory }) => {
+const BebidasCategorySection: React.FC<BebidasCategorySectionProps> = ({ selectedCategories, setIsCategoryModalOpen, toggleCategory }) => {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-5 mb-6" data-lov-id="app/cadastro-produto/cadastro-simples/CategorySection">
+    <div className="bg-white rounded-lg border border-gray-200 p-5 mb-6" data-lov-id="app/cadastro-produto/cadastro-bebidas/BebidasCategorySection.tsx">
       <div className="flex justify-between items-center mb-1">
         <h3 className="text-base font-medium">Categorias</h3>
         {selectedCategories.length > 0 && (
@@ -63,4 +63,4 @@ const CategorySection: React.FC<CategorySectionProps> = ({ selectedCategories, s
   );
 };
 
-export default CategorySection; 
+export default BebidasCategorySection; 
