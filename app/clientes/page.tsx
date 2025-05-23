@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header"
 import { Input } from "@/components/ui/input"
 import { Search, ChevronDown, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import OrdersSidebar from "@/components/layout/OrdersSidebar"
+import OrderPanel from "@/components/orders/OrderPanel"
 import ClientsList from "@/components/clients/ClientsList"
 import { useClients } from "@/hooks/useClients"
 
@@ -61,7 +61,7 @@ export default function ClientesPage() {
           </div>
 
           {/* Orders sidebar */}
-          <OrdersSidebar />
+          <OrderPanel />
         </div>
       </div>
     </div>

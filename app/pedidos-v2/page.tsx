@@ -49,7 +49,7 @@ export default function PedidosV2Page() {
               <div className="flex flex-col items-end">
                 <div className="flex items-center">
                   <img 
-                    src="/vetores/VectorBlue.svg" 
+                    src="./vetores/Vectorblue.svg" 
                     alt="Tendência de alta" 
                     width={28} 
                     height={28} 

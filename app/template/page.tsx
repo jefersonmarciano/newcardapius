@@ -1,5 +1,5 @@
 import Header from "@/components/layout/Header"
-import OrdersSidebar from "@/components/layout/OrdersSidebar"
+import OrderPanel from "@/components/orders/OrderPanel"
 import { Input } from "@/components/ui/input"
 import { Search, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -164,7 +164,7 @@ export default function TemplatePage() {
               </div>
             </div>
           </div>
-          <OrdersSidebar />
+          <OrderPanel />
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ export default function PedidosMetrics({ metrics }: { metrics: any }) {
           <div className="flex flex-col items-end">
             <div className="flex items-center">
               <Image 
-                src="/vetores/VectorBlue.svg" 
+                src="./vetores/Vectorblue.svg" 
                 alt="Tendência de alta" 
                 width={28} 
                 height={28} 

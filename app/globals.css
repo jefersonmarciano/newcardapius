@@ -24,6 +24,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+
+    /* Novas variáveis para os descontos */
+    --discount-bg: #E8FFF5;
+    --discount-border: #A7EAC8;
+    --discount-text: #333333;
+    --discount-badge-bg: #E3E3E3;
+    --discount-badge-text: #666666;
+    --discount-delete: #FF5900;
+    --discount-delete-hover: #FFE5D9;
   }
 
   .dark {
@@ -68,4 +77,67 @@
   .scrollbar-hidden::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Estilos dos descontos */
+.discounts-container {
+  margin-top: 1.25rem;
+}
+
+.discounts-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.discounts-wrapper {
+  border-radius: 0.5rem;
+  background-color: var(--discount-bg);
+  border: 1px solid var(--discount-border);
+}
+
+.discount-item {
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--discount-bg);
+  color: var(--discount-text);
+}
+
+.discount-item + .discount-item {
+  border-top: 1px solid var(--discount-border);
+}
+
+.discount-badge {
+  background-color: var(--discount-badge-bg);
+  color: var(--discount-badge-text);
+  border: 1px solid var(--discount-badge-bg);
+  padding: 0.125rem 0.5rem;
+  height: 1.5rem;
+  font-weight: normal;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+}
+
+.discount-description {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--discount-text);
+}
+
+.discount-value {
+  font-size: 0.875rem;
+  color: var(--discount-text);
+}
+
+.discount-delete-button {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: var(--discount-delete);
+}
+
+.discount-delete-button:hover {
+  background-color: var(--discount-delete-hover);
+  color: var(--discount-delete);
 }
