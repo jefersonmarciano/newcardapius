@@ -1,67 +1,80 @@
-import { useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 
 export interface Adicional {
-  id: number;
-  nome: string;
-  descricao: string;
-  preco: string;
-  promocional: string;
-  disponivel: boolean;
-  imagem: string;
+  id: string
+  nome: string
+  descricao: string
+  preco: number
+  precoPromocional: number
+  imagem: string
 }
 
-export default function useAdicionais() {
-  const [adicionais, setAdicionais] = useState<Adicional[]>([
+// Função para buscar os adicionais (simulada por enquanto)
+const fetchAdicionais = async (): Promise<Adicional[]> => {
+  // Aqui você substituirá por uma chamada real à API
+  return [
     {
-      id: 1,
-      nome: 'Pizza napolitana',
-      descricao: 'Pizza Napolitana da casa com ervas finas e queijo premium...',
-      preco: 'R$ 100',
-      promocional: 'R$ 75',
-      disponivel: true,
-      imagem: '/images/pizza-napolitana.jpg',
+      id: '1',
+      nome: 'Maionese',
+      descricao: 'Maionese a moda da casa',
+      preco: 100,
+      precoPromocional: 75,
+      imagem: '/images/maionese.png'
     },
     {
-      id: 2,
-      nome: 'Pizza marguerita',
-      descricao: 'Pizza Marguerita tradicional com tomate e manjericão...',
-      preco: 'R$ 90',
-      promocional: 'R$ 70',
-      disponivel: true,
-      imagem: '/images/pizza-marguerita.jpg',
+      id: '2',
+      nome: 'Molho mostarda',
+      descricao: 'Maionese a moda da casa',
+      preco: 100,
+      precoPromocional: 75,
+      imagem: '/images/mostarda.png'
     },
     {
-      id: 3,
-      nome: 'Pizza portuguesa',
-      descricao: 'Pizza Portuguesa com ovos, presunto e cebola...',
-      preco: 'R$ 110',
-      promocional: 'R$ 85',
-      disponivel: true,
-      imagem: '/images/pizza-portuguesa.jpg',
-    },
-  ]);
+      id: '3',
+      nome: 'Molho tropical',
+      descricao: 'Maionese a moda da casa',
+      preco: 100,
+      precoPromocional: 75,
+      imagem: '/images/molho-tropical.png'
+    }
+  ]
+}
 
-  const toggleDisponibilidade = (id: number) => {
-    setAdicionais(prev =>
-      prev.map(adicional =>
-        adicional.id === id
-          ? { ...adicional, disponivel: !adicional.disponivel }
-          : adicional
-      )
-    );
-  };
+const useAdicionais = () => {
+  const queryClient = useQueryClient()
 
-  const addAdicionais = (novos: Adicional[]) => {
-    setAdicionais(prev => [
-      ...prev,
-      ...novos.filter(novo => !prev.some(a => a.id === novo.id))
-    ]);
-  };
+  const { data: adicionais, isLoading, error } = useQuery<Adicional[]>({
+    queryKey: ['adicionais'],
+    queryFn: fetchAdicionais
+  })
+
+  const { mutate: deleteAdicional } = useMutation({
+    mutationFn: async (id: string) => {
+      // Aqui você implementará a chamada real para deletar
+      console.log('Deletando adicional:', id)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['adicionais'] })
+    }
+  })
+
+  const { mutate: updateAdicional } = useMutation({
+    mutationFn: async (adicional: Adicional) => {
+      // Aqui você implementará a chamada real para atualizar
+      console.log('Atualizando adicional:', adicional)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['adicionais'] })
+    }
+  })
 
   return {
     adicionais,
-    toggleDisponibilidade,
-    addAdicionais,
-    setAdicionais,
-  };
-} 
+    isLoading,
+    error,
+    deleteAdicional,
+    updateAdicional
+  }
+}
+
+export default useAdicionais 
