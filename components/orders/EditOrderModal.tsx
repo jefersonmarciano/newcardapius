@@ -166,7 +166,7 @@ export default function EditOrderContent({ orderId, onClose }: EditOrderModalPro
             </div>
 
             <div className="flex justify-between items-center px-4 py-3 bg-orange-50 border-t border-gray-200">
-              <span className="text-base font-medium">Total</span>
+              <span className="text-base font-bold">Total</span>
               <span className="text-orange-500 font-bold">R$ {subtotal.toFixed(2)}</span>
             </div>
           </div>

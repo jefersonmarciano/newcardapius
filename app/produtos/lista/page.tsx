@@ -35,6 +35,9 @@ function ProdutoRow({ produto }: { produto: any }) {
         <Input className="w-48 text-center" value={produto.categoria} readOnly />
       </td>
       <td className="px-4 flex gap-5 items-center justify-center">
+      <button className="text-orange-500 hover:text-orange-700" title="Compartilhar">
+          <img src="/vetores/compartilhar.svg" alt="Compartilhar" className="h-5 w-5" />
+        </button>
         <button className="text-orange-500 hover:text-orange-700" title="Editar">
           <img src="/vetores/edit.svg" alt="Editar" className="h-5 w-5" />
         </button>
