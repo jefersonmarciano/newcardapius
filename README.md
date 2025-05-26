@@ -58,7 +58,7 @@ src/
 ## Sistema de Categorias
 
 - Modal de seleção hierárquica de categorias
-- Criação de novas categorias diretamente do modal
+  - Criação de novas categorias diretamente do modal
 - Visualização clara da hierarquia
 - Integração com cadastro de produtos
 

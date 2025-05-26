@@ -56,44 +56,44 @@ export default function Sidebar() {
             defaultOpen={pathname.startsWith('/cardapio') || pathname.startsWith('/cadastro-produto') || pathname.startsWith('/produtos') || pathname.startsWith('/adicionais')}
           >
             <div className="ml-0">
-              <SidebarSubmenu
-                label="Produtos"
+            <SidebarSubmenu
+              label="Produtos"
+              expanded={expanded}
+              active={pathname.startsWith('/produtos') || pathname.startsWith('/cadastro-produto')}
+              defaultOpen={pathname.startsWith('/produtos') || pathname.startsWith('/cadastro-produto')}
+            >
+              <SidebarItem
+                label="Cadastrar"
+                href="/cadastro-produto"
+                active={pathname === '/cadastro-produto'}
                 expanded={expanded}
-                active={pathname.startsWith('/produtos') || pathname.startsWith('/cadastro-produto')}
-                defaultOpen={pathname.startsWith('/produtos') || pathname.startsWith('/cadastro-produto')}
-              >
-                <SidebarItem
-                  label="Cadastrar"
-                  href="/cadastro-produto"
-                  active={pathname === '/cadastro-produto'}
-                  expanded={expanded}
-                />
-                <SidebarItem
-                  label="Lista de produtos"
-                  href="/produtos/lista"
-                  active={pathname === '/produtos/lista'}
-                  expanded={expanded}
-                />
-              </SidebarSubmenu>
-              <SidebarSubmenu
-                label="Adicionais"
+              />
+              <SidebarItem
+                label="Lista de produtos"
+                href="/produtos/lista"
+                active={pathname === '/produtos/lista'}
                 expanded={expanded}
-                active={pathname.startsWith('/adicionais')}
-                defaultOpen={pathname.startsWith('/adicionais')}
-              >
-                <SidebarItem
-                  label="Cadastrar"
-                  href="/adicionais/cadastrar"
-                  active={pathname === '/adicionais/cadastrar'}
-                  expanded={expanded}
-                />
-                <SidebarItem
-                  label="Listar adicionais"
-                  href="/adicionais/lista"
-                  active={pathname === '/adicionais/lista'}
-                  expanded={expanded}
-                />
-              </SidebarSubmenu>
+              />
+            </SidebarSubmenu>
+            <SidebarSubmenu
+              label="Adicionais"
+              expanded={expanded}
+              active={pathname.startsWith('/adicionais')}
+              defaultOpen={pathname.startsWith('/adicionais')}
+            >
+              <SidebarItem
+                label="Cadastrar"
+                href="/adicionais/cadastrar"
+                active={pathname === '/adicionais/cadastrar'}
+                expanded={expanded}
+              />
+              <SidebarItem
+                label="Listar adicionais"
+                href="/adicionais/lista"
+                active={pathname === '/adicionais/lista'}
+                expanded={expanded}
+              />
+            </SidebarSubmenu>
             </div>
           </SidebarSubmenu>
         </SidebarSection>
